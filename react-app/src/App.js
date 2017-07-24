@@ -1,16 +1,35 @@
 import React from 'react';
 
 class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            val: 0
+        };
+        this.update = this.update.bind(this)
+    }
+    update(){
+        this.setState({val: this.state.val + 1})
+    }
+    componentWillUnmount(){
+        console.log('componentWillUnmount');
+    };
+    componentDidMount(){
+        console.log('componentDidMount');
+    };
+    componentWillMount(){
+        console.log('componentWillMount');
+    }
+
     render() {
+        console.log('render');
         return (
             <div>
-                <h1>Hello World</h1>
-                <span>sdsadsa</span>
+               <button onclick={this.update}>{this.state.val}</button>
             </div>
         )
     }
 }
 
-// const App = () => <h1>hey</h1>
 
 export default App
